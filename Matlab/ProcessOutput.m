@@ -1,6 +1,6 @@
 function [x,y] = ProcessOutput()
 
-data = readmatrix('\\wsl.localhost\Debian\home\sferri\Projects\PetscEmbedding\output\results.csv');
+data = readmatrix('~/Projects/PetscEmbedding/output/results.csv');
 
 norm1 = data(:,3);
 norm2 = data(:,4);
