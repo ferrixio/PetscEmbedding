@@ -24,13 +24,10 @@
 localDefs.make
 .vscode
 *.log
-shrink1d
-shrink2d
-shrink3d
 *.h5
 output/*
 test*
 *.dat
 *.dat.info
-ghostMG
+vecrng
 *.opt

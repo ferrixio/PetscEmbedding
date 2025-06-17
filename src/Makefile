@@ -11,15 +11,15 @@ CFLAGS  = -g3
 CXXFLAGS= -g3
 
 SRCDIR = ../src
-OBJS = gridLibrary.o MGLibrary.o
+OBJS = library.o
 SRCDIR_OBJS := $(OBJS:%=${SRCDIR}/%)
 HEADERS=$(SRCDIR_OBJS:.o=.hpp)
 
 
-ghostMG: ghostMG.o $(OBJS) $(HEADERS)
-	${CXXLINKER} -o $@ ghostMG.o $(OBJS) ${PETSC_DM_LIB} ${PETSC_SYS_LIB}
+vecrng: main.o $(OBJS) $(HEADERS)
+	${CXXLINKER} -o $@ main.o $(OBJS) ${PETSC_DM_LIB} ${PETSC_SYS_LIB}
 
-ghostMG.o: ${SRCDIR}/main.cpp $(HEADERS)
+main.o: ${SRCDIR}/main.cpp $(HEADERS)
 	${PETSC_CXXCOMPILE_SINGLE} -I${SRCDIR} -o $@ ${SRCDIR}/main.cpp
 
 %.o: ${SRCDIR}/%.cpp ${SRCDIR}/%.hpp
